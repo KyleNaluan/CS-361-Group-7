@@ -1,30 +1,72 @@
-﻿import psycopg2
+﻿import os
+import openai
+import psycopg2
+from dotenv import load_dotenv
 
-# Database connection
-DB_HOST = "localhost"
-DB_USER = "admin" 
-DB_PASSWORD = "CSGroup7"
-DB_NAME = "threat_intel"
-DB_PORT = "5432"
+# Load API keys and DB config
+load_dotenv("OSINT.env")
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# Connect to PostgreSQL
-conn = psycopg2.connect(
-    dbname=DB_NAME, user=DB_USER, password=DB_PASSWORD, host=DB_HOST, port=DB_PORT
-)
-cursor = conn.cursor()
+def analyze_risk(threat_name, likelihood, impact):
+    prompt = (
+        f"Given the threat '{threat_name}', with likelihood {likelihood} and impact {impact}, "
+        "calculate a risk score from 1 to 25 and explain why."
+    )
 
-# Fetch threat data with risk scores
-cursor.execute("SELECT id, threat_name, likelihood, impact, risk_score FROM tva_mapping.tva_mapping")
-threats = cursor.fetchall()
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "You are a cybersecurity assistant scoring threats."},
+                {"role": "user", "content": prompt}
+            ]
+        )
+        return response["choices"][0]["message"]["content"]
+    except Exception as e:
+        return f"AI error: {e}"
 
-# Print the results
-print("\n🔹 Risk Assessment Report 🔹")
-for threat in threats:
-    threat_id, threat_name, likelihood, impact, risk_score = threat
-    print(f"ID: {threat_id} | Threat: {threat_name} | Likelihood: {likelihood} | Impact: {impact} | Risk Score: {risk_score}")
+def insert_risk_score(asset_id, threat_id, likelihood, impact, risk_score, notes):
+    try:
+        conn = psycopg2.connect(
+            dbname=os.getenv("DB_NAME"),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASSWORD"),
+            host=os.getenv("DB_HOST"),
+            port=os.getenv("DB_PORT")
+        )
+        cursor = conn.cursor()
+        cursor.execute("""
+            INSERT INTO schema.risk_assessments (
+                asset_id, threat_id, likelihood, impact, risk_score,
+                risk_level, assessment_date, created_at, updated_at, notes
+            ) VALUES (%s, %s, %s, %s, %s, %s, CURRENT_DATE, NOW(), NOW(), %s)
+        """, (
+            asset_id, threat_id, likelihood, impact, risk_score,
+            "High" if risk_score > 20 else "Medium",
+            notes
+        ))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        print("Risk score inserted into database.")
+    except Exception as e:
+        print(f"Database insertion error: {e}")
 
-# Close connection
-cursor.close()
-conn.close()
+# Example execution
+if __name__ == "__main__":
+    threat = "SQL Injection"
+    likelihood = 4
+    impact = 5
 
-print("\n✅ Risk scores retrieved successfully!")
+    ai_result = analyze_risk(threat, likelihood, impact)
+    print("AI Response:\n", ai_result)
+
+    # Placeholder score for demonstration (you could parse this from ai_result)
+    insert_risk_score(
+        asset_id=1,
+        threat_id=1,
+        likelihood=likelihood,
+        impact=impact,
+        risk_score=22,
+        notes=ai_result
+    )
