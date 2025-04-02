@@ -1,136 +1,151 @@
---
--- PostgreSQL database dump
---
 
--- Dumped from database version 17.4
--- Dumped by pg_dump version 17.2
-
--- Started on 2025-03-16 14:37:05
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- TOC entry 7 (class 2615 OID 16390)
--- Name: tva_mapping; Type: SCHEMA; Schema: -; Owner: postgres
---
-
-CREATE SCHEMA tva_mapping;
-
-
-ALTER SCHEMA tva_mapping OWNER TO postgres;
-
-SET default_tablespace = '';
-
-SET default_table_access_method = heap;
-
---
--- TOC entry 223 (class 1259 OID 16414)
--- Name: tva_mapping; Type: TABLE; Schema: tva_mapping; Owner: postgres
---
-
-CREATE TABLE tva_mapping.tva_mapping (
-    id integer NOT NULL,
-    asset_id integer,
-    threat_name character varying(255),
-    vulnerability_description text,
-    likelihood integer,
-    impact integer,
-    risk_score integer GENERATED ALWAYS AS ((likelihood * impact)) STORED,
-    CONSTRAINT tva_mapping_impact_check CHECK (((impact >= 1) AND (impact <= 5))),
-    CONSTRAINT tva_mapping_likelihood_check CHECK (((likelihood >= 1) AND (likelihood <= 5)))
+CREATE TABLE IF NOT EXISTS tva_mapping.threat_intel_temp (
+    id SERIAL PRIMARY KEY,
+    threat_type VARCHAR(255),
+    risk_score INT,
+    confidence INT,
+    last_observed TIMESTAMP,
+    source VARCHAR(100),
+    details TEXT
 );
 
+TRUNCATE tva_mapping.threat_intel_temp;
 
-ALTER TABLE tva_mapping.tva_mapping OWNER TO postgres;
+INSERT INTO tva_mapping.threat_intel_temp (threat_type, risk_score, confidence, last_observed, source, details)
+VALUES
+    ('SQL Injection', 22, 8, NOW() - INTERVAL '2 days', 'OWASP Top 10', 'Increased SQLi activity targeting financial institutions'),
+    ('Phishing Attack', 25, 9, NOW() - INTERVAL '1 day', 'PhishTank', 'New sophisticated phishing campaign targeting corporate users'),
+    ('DDoS Attack', 18, 7, NOW() - INTERVAL '5 days', 'DDoS-DB', 'Multiple botnets actively targeting cloud services'),
+    ('Credential Stuffing', 23, 8, NOW() - INTERVAL '3 days', 'HaveIBeenPwned', 'New breach data being used in credential stuffing attacks'),
+    ('Man-in-the-Middle Attack', 15, 6, NOW() - INTERVAL '7 days', 'ThreatFeed', 'Public WiFi MITM attacks increasing in urban areas');
 
---
--- TOC entry 222 (class 1259 OID 16413)
--- Name: tva_mapping_id_seq; Type: SEQUENCE; Schema: tva_mapping; Owner: postgres
---
+UPDATE tva_mapping.tva_mapping
+SET likelihood = CASE
+    WHEN (SELECT risk_score FROM tva_mapping.threat_intel_temp WHERE threat_type = 'SQL Injection') > 20 THEN 5
+    WHEN (SELECT risk_score FROM tva_mapping.threat_intel_temp WHERE threat_type = 'SQL Injection') > 15 THEN 4
+    WHEN (SELECT risk_score FROM tva_mapping.threat_intel_temp WHERE threat_type = 'SQL Injection') > 10 THEN 3
+    ELSE likelihood
+END
+WHERE threat_name = 'SQL Injection';
 
-CREATE SEQUENCE tva_mapping.tva_mapping_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER SEQUENCE tva_mapping.tva_mapping_id_seq OWNER TO postgres;
-
---
--- TOC entry 4953 (class 0 OID 0)
--- Dependencies: 222
--- Name: tva_mapping_id_seq; Type: SEQUENCE OWNED BY; Schema: tva_mapping; Owner: postgres
---
-
-ALTER SEQUENCE tva_mapping.tva_mapping_id_seq OWNED BY tva_mapping.tva_mapping.id;
-
-
---
--- TOC entry 4794 (class 2604 OID 16417)
--- Name: tva_mapping id; Type: DEFAULT; Schema: tva_mapping; Owner: postgres
---
-
-ALTER TABLE ONLY tva_mapping.tva_mapping ALTER COLUMN id SET DEFAULT nextval('tva_mapping.tva_mapping_id_seq'::regclass);
+UPDATE tva_mapping.tva_mapping
+SET likelihood = CASE
+    WHEN (SELECT risk_score FROM tva_mapping.threat_intel_temp WHERE threat_type = 'Phishing Attack') > 20 THEN 5
+    WHEN (SELECT risk_score FROM tva_mapping.threat_intel_temp WHERE threat_type = 'Phishing Attack') > 15 THEN 4
+    ELSE likelihood
+END
+WHERE threat_name = 'Phishing Attack';
 
 
---
--- TOC entry 4947 (class 0 OID 16414)
--- Dependencies: 223
--- Data for Name: tva_mapping; Type: TABLE DATA; Schema: tva_mapping; Owner: postgres
---
+UPDATE tva_mapping.tva_mapping tm
+SET impact = CASE
+    WHEN a.asset_type = 'People' AND (SELECT risk_score FROM tva_mapping.threat_intel_temp WHERE threat_type = 'Phishing Attack') > 20 THEN 5
+    ELSE impact
+END
+FROM assets.assets a
+WHERE tm.asset_id = a.id
+AND tm.threat_name = 'Phishing Attack';
 
-COPY tva_mapping.tva_mapping (id, asset_id, threat_name, vulnerability_description, likelihood, impact) FROM stdin;
-1	1	SQL Injection	Improper input validation allows attackers to manipulate SQL queries	4	5
-2	11	Phishing Attack	Social engineering attack tricking employees into revealing credentials	5	4
-3	4	DDoS Attack	Large-scale traffic overload disrupts availability of web services	3	5
-4	10	Credential Stuffing	Attackers use leaked passwords from breaches to gain unauthorized access	4	4
-5	3	Man-in-the-Middle Attack	Intercepted communications lead to data theft or manipulation	3	5
-\.
+UPDATE tva_mapping.tva_mapping
+SET likelihood = CASE
+    WHEN (SELECT risk_score FROM tva_mapping.threat_intel_temp WHERE threat_type = 'DDoS Attack') > 15 THEN 4
+    WHEN (SELECT risk_score FROM tva_mapping.threat_intel_temp WHERE threat_type = 'DDoS Attack') > 10 THEN 3
+    ELSE likelihood
+END
+WHERE threat_name = 'DDoS Attack';
 
+UPDATE tva_mapping.tva_mapping tm
+SET impact = CASE
+    WHEN a.asset_type = 'Software' AND a.asset_name LIKE '%Web%' THEN 5
+    ELSE impact
+END
+FROM assets.assets a
+WHERE tm.asset_id = a.id
+AND tm.threat_name = 'DDoS Attack';
 
---
--- TOC entry 4954 (class 0 OID 0)
--- Dependencies: 222
--- Name: tva_mapping_id_seq; Type: SEQUENCE SET; Schema: tva_mapping; Owner: postgres
---
+UPDATE tva_mapping.tva_mapping
+SET likelihood = CASE
+    WHEN (SELECT risk_score FROM tva_mapping.threat_intel_temp WHERE threat_type = 'Credential Stuffing') > 20 THEN 5
+    WHEN (SELECT risk_score FROM tva_mapping.threat_intel_temp WHERE threat_type = 'Credential Stuffing') > 15 THEN 4
+    ELSE likelihood
+END
+WHERE threat_name = 'Credential Stuffing';
 
-SELECT pg_catalog.setval('tva_mapping.tva_mapping_id_seq', 5, true);
+UPDATE tva_mapping.tva_mapping tm
+SET impact = CASE
+    WHEN a.asset_type = 'Data' AND a.asset_name LIKE '%Credentials%' THEN 5
+    ELSE impact
+END
+FROM assets.assets a
+WHERE tm.asset_id = a.id
+AND tm.threat_name = 'Credential Stuffing';
 
+UPDATE tva_mapping.tva_mapping
+SET likelihood = CASE
+    WHEN (SELECT risk_score FROM tva_mapping.threat_intel_temp WHERE threat_type = 'Man-in-the-Middle Attack') > 15 THEN 4
+    WHEN (SELECT risk_score FROM tva_mapping.threat_intel_temp WHERE threat_type = 'Man-in-the-Middle Attack') > 10 THEN 3
+    ELSE likelihood
+END
+WHERE threat_name = 'Man-in-the-Middle Attack';
 
---
--- TOC entry 4799 (class 2606 OID 16424)
--- Name: tva_mapping tva_mapping_pkey; Type: CONSTRAINT; Schema: tva_mapping; Owner: postgres
---
+CREATE TABLE IF NOT EXISTS tva_mapping.tva_update_log (
+    id SERIAL PRIMARY KEY,
+    update_timestamp TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    update_source VARCHAR(255),
+    threat_name VARCHAR(255),
+    old_likelihood INTEGER,
+    new_likelihood INTEGER,
+    old_impact INTEGER,
+    new_impact INTEGER,
+    old_risk_score INTEGER,
+    new_risk_score INTEGER
+);
 
-ALTER TABLE ONLY tva_mapping.tva_mapping
-    ADD CONSTRAINT tva_mapping_pkey PRIMARY KEY (id);
+INSERT INTO tva_mapping.tva_update_log 
+(update_source, threat_name, old_likelihood, new_likelihood, old_impact, new_impact, old_risk_score, new_risk_score)
+SELECT 
+    'Threat Intelligence Feed' as update_source,
+    tm.threat_name,
+    tva_before.likelihood as old_likelihood,
+    tm.likelihood as new_likelihood,
+    tva_before.impact as old_impact,
+    tm.impact as new_impact,
+    tva_before.risk_score as old_risk_score,
+    tm.risk_score as new_risk_score
+FROM 
+    tva_mapping.tva_mapping tm
+JOIN 
+    (SELECT id, likelihood, impact, risk_score FROM tva_mapping.tva_mapping BEFORE UPDATE) as tva_before
+ON 
+    tm.id = tva_before.id
+WHERE 
+    tm.likelihood != tva_before.likelihood OR tm.impact != tva_before.impact;
 
-
---
--- TOC entry 4800 (class 2606 OID 16425)
--- Name: tva_mapping tva_mapping_asset_id_fkey; Type: FK CONSTRAINT; Schema: tva_mapping; Owner: postgres
---
-
-ALTER TABLE ONLY tva_mapping.tva_mapping
-    ADD CONSTRAINT tva_mapping_asset_id_fkey FOREIGN KEY (asset_id) REFERENCES assets.assets(id);
-
-
--- Completed on 2025-03-16 14:37:05
-
---
--- PostgreSQL database dump complete
---
-
+CREATE OR REPLACE VIEW tva_mapping.tva_intel_view AS
+SELECT 
+    tm.id,
+    a.asset_name,
+    a.asset_type,
+    tm.threat_name,
+    tm.vulnerability_description,
+    tm.likelihood,
+    tm.impact,
+    tm.risk_score,
+    CASE
+        WHEN tm.risk_score >= 16 THEN 'Critical'
+        WHEN tm.risk_score >= 10 THEN 'High'
+        WHEN tm.risk_score >= 4 THEN 'Medium'
+        ELSE 'Low'
+    END as risk_level,
+    ti.risk_score as threat_intel_score,
+    ti.confidence as threat_intel_confidence,
+    ti.last_observed as threat_last_observed,
+    ti.source as intel_source
+FROM 
+    tva_mapping.tva_mapping tm
+JOIN 
+    assets.assets a ON tm.asset_id = a.id
+LEFT JOIN 
+    tva_mapping.threat_intel_temp ti ON tm.threat_name = ti.threat_type
+ORDER BY 
+    tm.risk_score DESC;
