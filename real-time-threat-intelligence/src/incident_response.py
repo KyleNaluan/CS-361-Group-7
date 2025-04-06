@@ -1,4 +1,5 @@
-# /src/incident_response.py
+import psycopg2
+import datetime
 
 def get_incident_response(threat_name):
 
@@ -7,6 +8,7 @@ def get_incident_response(threat_name):
     response_playbooks = {
         "sql injection": {
             "priority": "High",
+            "nist_phases": ["Detection & Analysis", "Containment, Eradication, & Recovery"],
             "steps": [
                 "Block malicious IP via firewall.",
                 "Check for unauthorized DB access or changes.",
@@ -17,6 +19,7 @@ def get_incident_response(threat_name):
         },
         "phishing": {
             "priority": "High",
+            "nist_phases": ["Detection & Analysis", "Post-Incident Activity"],
             "steps": [
                 "Alert affected users and force password resets.",
                 "Search inboxes for similar malicious emails.",
@@ -27,6 +30,7 @@ def get_incident_response(threat_name):
         },
         "ddos": {
             "priority": "Medium",
+            "nist_phases": ["Containment, Eradication, & Recovery"],
             "steps": [
                 "Activate DDoS mitigation (e.g., Cloudflare, AWS Shield).",
                 "Rate-limit or block attacker IPs.",
@@ -37,6 +41,7 @@ def get_incident_response(threat_name):
         },
         "ransomware": {
             "priority": "Critical",
+            "nist_phases": ["Detection & Analysis", "Containment, Eradication, & Recovery", "Post-Incident Activity"],
             "steps": [
                 "Isolate affected machines from the network.",
                 "Disable shared drives and services.",
@@ -47,6 +52,7 @@ def get_incident_response(threat_name):
         },
         "unauthorized access": {
             "priority": "High",
+            "nist_phases": ["Detection & Analysis", "Containment, Eradication, & Recovery", "Post-Incident Activity"],
             "steps": [
                 "Revoke compromised credentials.",
                 "Audit access logs and unusual activity.",
@@ -59,5 +65,39 @@ def get_incident_response(threat_name):
 
     return response_playbooks.get(threat_name, {
         "priority": "Low",
+        "nist_phases": ["Preparation"],
         "steps": ["No predefined response plan available for this threat."]
     })
+
+# Database connection settings
+DB_CONFIG = {
+    "dbname": "threat_intel",
+    "user": "admin",
+    "password": "CSGroup7",
+    "host": "localhost",
+    "port": 5432,
+}
+
+def log_incident(threat_name, risk_score, response_plan):
+    try:
+        conn = psycopg2.connect(**DB_CONFIG)
+        cursor = conn.cursor()
+
+        cursor.execute("""
+            INSERT INTO schema.incident_logs (threat_name, risk_score, priority, nist_phases, response_steps, timestamp)
+            VALUES (%s, %s, %s, %s, %s, %s)
+        """, (
+            threat_name,
+            risk_score,
+            response_plan["priority"],
+            ", ".join(response_plan["nist_phases"]),
+            "\n".join(response_plan["steps"]),
+            datetime.utcnow()
+        ))
+
+        conn.commit()
+        cursor.close()
+        conn.close()
+        print(f"Incident logged for threat: {threat_name}")
+    except Exception as e:
+        print(f"Error logging incident: {e}")
