@@ -3,6 +3,7 @@ import ThreatLogs from "./ThreatLogs";
 import RiskScores from "./RiskScores";
 import RealTimeAlerts from "./RealTimeAlerts";
 import AssetList from "./AssetList";
+import RiskTrends from "./RiskTrends";
 
 function ThreatDashboard() {
   return (
@@ -24,14 +25,19 @@ function ThreatDashboard() {
         </div>
 
         {/* Right Column */}
-        <RealTimeAlerts />
+        <div className="right-column">
+          <RealTimeAlerts />
+          <RiskTrends />
+        </div>
+
+
 
         {/* Bottom Section */}
         <div className="asset-section">
           <AssetList />
         </div>
       </div>
-      
+
     </div>
   );
 }
