@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\api",
+    "\\api\\inspectionProfiles",
+    "\\db",
+    "\\docs",
+    "\\src",
+    "\\src\\threat-dashboard",
+    "\\src\\threat-dashboard\\public",
+    "\\src\\threat-dashboard\\src"
+  ],
+  "SelectedNode": "\\src\\threat-dashboard\\generated-icon.png",
+  "PreviewInSolutionExplorer": false
+}

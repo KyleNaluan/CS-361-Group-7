@@ -1,8 +1,21 @@
-import psycopg2
+﻿import psycopg2
 import datetime
+import os
+from dotenv import load_dotenv
+from mitigation_recommendations import recommend_mitigation
+
+# Load DB credentials from .env
+load_dotenv(dotenv_path="../api/osint.env")
+
+DB_CONFIG = {
+    "dbname": os.getenv("DB_NAME"),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD"),
+    "host": os.getenv("DB_HOST"),
+    "port": os.getenv("DB_PORT")
+}
 
 def get_incident_response(threat_name):
-
     threat_name = threat_name.strip().lower()
 
     response_playbooks = {
@@ -60,6 +73,17 @@ def get_incident_response(threat_name):
                 "Check for data exfiltration.",
                 "Update permissions and conduct policy review.",
             ]
+        },
+        "malicious ip detected": {  # Added specific response for malicious IP
+            "priority": "Medium",
+            "nist_phases": ["Detection & Analysis", "Containment, Eradication, & Recovery"],
+            "steps": [
+                "Block the malicious IP via firewall.",
+                "Check logs for any suspicious activities linked to the IP.",
+                "Report the malicious IP to threat intelligence databases.",
+                "Monitor network traffic for any further signs of attack.",
+                "Implement rate limiting for repeated failed login attempts.",
+            ]
         }
     }
 
@@ -69,35 +93,63 @@ def get_incident_response(threat_name):
         "steps": ["No predefined response plan available for this threat."]
     })
 
-# Database connection settings
-DB_CONFIG = {
-    "dbname": "threat_intel",
-    "user": "admin",
-    "password": "CSGroup7",
-    "host": "localhost",
-    "port": 5432,
-}
+def build_incident_response(threat_name, risk_score):
+    plan = get_incident_response(threat_name)
+    plan["mitigation"] = recommend_mitigation(threat_name)
+    plan["risk_score"] = risk_score
+    plan["threat_name"] = threat_name
+    return plan
 
 def log_incident(threat_name, risk_score, response_plan):
     try:
         conn = psycopg2.connect(**DB_CONFIG)
         cursor = conn.cursor()
 
-        cursor.execute("""
-            INSERT INTO schema.incident_logs (threat_name, risk_score, priority, nist_phases, response_steps, timestamp)
-            VALUES (%s, %s, %s, %s, %s, %s)
+        cursor.execute(""" 
+            INSERT INTO public.incident_logs (threat_name, risk_score, priority, nist_phases, response_steps, mitigation, timestamp) 
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
         """, (
             threat_name,
             risk_score,
             response_plan["priority"],
-            ", ".join(response_plan["nist_phases"]),
-            "\n".join(response_plan["steps"]),
-            datetime.utcnow()
+            response_plan["nist_phases"],
+            response_plan["steps"],
+            response_plan["mitigation"],
+            datetime.datetime.utcnow()
         ))
 
         conn.commit()
         cursor.close()
         conn.close()
-        print(f"Incident logged for threat: {threat_name}")
+        print(f"✅ Incident logged for: {threat_name}")
+
     except Exception as e:
-        print(f"Error logging incident: {e}")
+        print(f"❌ Error logging incident: {e}")
+
+# Function to fetch threats with a risk score greater than 20 from the database and log incidents
+def log_incidents_from_database():
+    try:
+        conn = psycopg2.connect(**DB_CONFIG)
+        cursor = conn.cursor()
+
+        cursor.execute(""" 
+            SELECT threat_name, risk_score 
+            FROM public.risk_assessments 
+            WHERE risk_score > 20
+        """)
+
+        rows = cursor.fetchall()
+        for row in rows:
+            threat_name, risk_score = row
+            response_plan = build_incident_response(threat_name, risk_score)
+            log_incident(threat_name, risk_score, response_plan)
+
+        cursor.close()
+        conn.close()
+
+    except Exception as e:
+        print(f"❌ Error fetching data from database: {e}")
+
+# Run the function to log incidents from the database
+if __name__ == "__main__":
+    log_incidents_from_database()

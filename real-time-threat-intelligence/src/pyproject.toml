@@ -1,4 +1,4 @@
-[tool.poetry]
+ [tool.poetry]
 name = "python-template"
 version = "0.1.0"
 description = ""

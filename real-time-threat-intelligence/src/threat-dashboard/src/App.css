@@ -193,4 +193,27 @@ body {
   .asset-list td {
     background-color: #ffffff;
   }
+
+.priority-badge {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 4px 8px;
+    font-size: 13px;
+    border-radius: 5px;
+    color: white;
+}
+
+    .priority-badge.high {
+        background-color: #dc3545;
+    }
+
+    .priority-badge.medium {
+        background-color: #ffc107;
+        color: black;
+    }
+
+    .priority-badge.low {
+        background-color: #28a745;
+    }
+
   

@@ -1,0 +1,316 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\src\\threat-dashboard\\src\\index.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\threat-dashboard\\src\\index.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\src\\threat-dashboard\\src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\threat-dashboard\\src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\src\\threat-dashboard\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\threat-dashboard\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\docs\\tech_stack.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:docs\\tech_stack.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\docs\\osint_research.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:docs\\osint_research.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\docs\\team_structure.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:docs\\team_structure.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\api\\OSINT API scripts.iml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:api\\OSINT API scripts.iml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\api\\modules.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:api\\modules.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\db\\threat_intel.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:db\\threat_intel.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\db\\tva_mapping.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:db\\tva_mapping.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\db\\schema.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:db\\schema.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\db\\assets.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:db\\assets.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\docs\\nist_framework_summary.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:docs\\nist_framework_summary.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\docs\\api_research.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:docs\\api_research.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\src\\main.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\src\\risk_analysis.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\risk_analysis.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\db\\assets.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:db\\assets.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\db\\schema.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:db\\schema.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\db\\tva_mapping.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:db\\tva_mapping.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\db\\threat_intel.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:db\\threat_intel.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "index.jsx",
+              "DocumentMoniker": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\src\\threat-dashboard\\src\\index.jsx",
+              "RelativeDocumentMoniker": "src\\threat-dashboard\\src\\index.jsx",
+              "ToolTip": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\src\\threat-dashboard\\src\\index.jsx",
+              "RelativeToolTip": "src\\threat-dashboard\\src\\index.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-03-20T02:23:14.168Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "App.jsx",
+              "DocumentMoniker": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\src\\threat-dashboard\\src\\App.jsx",
+              "RelativeDocumentMoniker": "src\\threat-dashboard\\src\\App.jsx",
+              "ToolTip": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\src\\threat-dashboard\\src\\App.jsx",
+              "RelativeToolTip": "src\\threat-dashboard\\src\\App.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-03-20T02:23:06.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\src\\threat-dashboard\\index.html",
+              "RelativeDocumentMoniker": "src\\threat-dashboard\\index.html",
+              "ToolTip": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\src\\threat-dashboard\\index.html",
+              "RelativeToolTip": "src\\threat-dashboard\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-03-20T02:22:52.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OSINT API scripts.iml",
+              "DocumentMoniker": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\api\\OSINT API scripts.iml",
+              "RelativeDocumentMoniker": "api\\OSINT API scripts.iml",
+              "ToolTip": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\api\\OSINT API scripts.iml",
+              "RelativeToolTip": "api\\OSINT API scripts.iml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-20T02:22:15.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "modules.xml",
+              "DocumentMoniker": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\api\\modules.xml",
+              "RelativeDocumentMoniker": "api\\modules.xml",
+              "ToolTip": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\api\\modules.xml",
+              "RelativeToolTip": "api\\modules.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2025-03-20T02:22:13.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "threat_intel.sql ",
+              "DocumentMoniker": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\db\\threat_intel.sql",
+              "RelativeDocumentMoniker": "db\\threat_intel.sql",
+              "ToolTip": "threat_intel.sql ",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-03-20T02:22:08.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "tva_mapping.sql ",
+              "DocumentMoniker": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\db\\tva_mapping.sql",
+              "RelativeDocumentMoniker": "db\\tva_mapping.sql",
+              "ToolTip": "tva_mapping.sql ",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-03-20T02:21:57.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "schema.sql ",
+              "DocumentMoniker": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\db\\schema.sql",
+              "RelativeDocumentMoniker": "db\\schema.sql",
+              "ToolTip": "schema.sql ",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-03-20T02:21:51.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "assets.sql ",
+              "DocumentMoniker": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\db\\assets.sql",
+              "RelativeDocumentMoniker": "db\\assets.sql",
+              "ToolTip": "assets.sql ",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-03-20T02:21:49.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "team_structure.md",
+              "DocumentMoniker": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\docs\\team_structure.md",
+              "RelativeDocumentMoniker": "docs\\team_structure.md",
+              "ToolTip": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\docs\\team_structure.md",
+              "RelativeToolTip": "docs\\team_structure.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-03-20T02:21:06.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "tech_stack.md",
+              "DocumentMoniker": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\docs\\tech_stack.md",
+              "RelativeDocumentMoniker": "docs\\tech_stack.md",
+              "ToolTip": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\docs\\tech_stack.md",
+              "RelativeToolTip": "docs\\tech_stack.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-03-20T02:21:06.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "osint_research.md",
+              "DocumentMoniker": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\docs\\osint_research.md",
+              "RelativeDocumentMoniker": "docs\\osint_research.md",
+              "ToolTip": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\docs\\osint_research.md",
+              "RelativeToolTip": "docs\\osint_research.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-03-20T02:21:05.673Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "nist_framework_summary.md",
+              "DocumentMoniker": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\docs\\nist_framework_summary.md",
+              "RelativeDocumentMoniker": "docs\\nist_framework_summary.md",
+              "ToolTip": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\docs\\nist_framework_summary.md",
+              "RelativeToolTip": "docs\\nist_framework_summary.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-03-20T02:21:01.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "api_research.md",
+              "DocumentMoniker": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\docs\\api_research.md",
+              "RelativeDocumentMoniker": "docs\\api_research.md",
+              "ToolTip": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\docs\\api_research.md",
+              "RelativeToolTip": "docs\\api_research.md",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-03-20T02:20:56.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "main.py",
+              "DocumentMoniker": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\src\\main.py",
+              "RelativeDocumentMoniker": "src\\main.py",
+              "ToolTip": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\src\\main.py",
+              "RelativeToolTip": "src\\main.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-03-20T02:20:31.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "risk_analysis.py",
+              "DocumentMoniker": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\src\\risk_analysis.py",
+              "RelativeDocumentMoniker": "src\\risk_analysis.py",
+              "ToolTip": "C:\\Users\\Fisher\\source\\repos\\CS-361-Group-7\\real-time-threat-intelligence\\src\\risk_analysis.py",
+              "RelativeToolTip": "src\\risk_analysis.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-03-20T02:15:16.498Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

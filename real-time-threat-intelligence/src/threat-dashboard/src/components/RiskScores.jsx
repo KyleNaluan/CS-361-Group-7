@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 
+
+
 function RiskScores() {
   const [tvaData, setTvaData] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/tva-mapping")
+      fetch("http://localhost:8080/api/tva-mapping")
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
